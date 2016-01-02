@@ -1,6 +1,6 @@
 ﻿namespace DropboxExplorer
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -90,7 +90,7 @@
             this.button_ListDirectoryStructure.UseVisualStyleBackColor = true;
             this.button_ListDirectoryStructure.Click += new System.EventHandler(this.button_ListDirectoryStructure_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,9 +101,9 @@
             this.Controls.Add(this.label_Results);
             this.Controls.Add(this.button_GetFolderSize);
             this.Controls.Add(this.treeView_DirectoryTree);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Dropbox Explorer";
             this.ResumeLayout(false);
             this.PerformLayout();
 
