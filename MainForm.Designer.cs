@@ -43,6 +43,7 @@
             this.treeView_DirectoryTree.Name = "treeView_DirectoryTree";
             this.treeView_DirectoryTree.Size = new System.Drawing.Size(602, 877);
             this.treeView_DirectoryTree.TabIndex = 0;
+            this.treeView_DirectoryTree.DoubleClick += new System.EventHandler(this.treeView_DirectoryTree_DoubleClick);
             // 
             // button_GetFolderSize
             // 
