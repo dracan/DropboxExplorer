@@ -92,6 +92,8 @@ namespace DropboxExplorer
                 {
                     var items = await _storageRepository.GetItemsAsync(CalculatePath(selectedNode), false);
 
+                    selectedNode.Nodes.Clear();
+
                     selectedNode.Nodes.AddRange((from x in items
                                                  where x.StorageItemType == StorageItemType.Directory
                                                  select new TreeNode(x.Name)).ToArray());
