@@ -36,6 +36,7 @@
             this.groupBox_Size = new System.Windows.Forms.GroupBox();
             this.label_SizeInMB = new System.Windows.Forms.Label();
             this.label_SizeInBytes = new System.Windows.Forms.Label();
+            this.label_SizeInGB = new System.Windows.Forms.Label();
             this.groupBox_Size.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,11 +88,12 @@
             // 
             // groupBox_Size
             // 
+            this.groupBox_Size.Controls.Add(this.label_SizeInGB);
             this.groupBox_Size.Controls.Add(this.label_SizeInBytes);
             this.groupBox_Size.Controls.Add(this.label_SizeInMB);
             this.groupBox_Size.Location = new System.Drawing.Point(643, 224);
             this.groupBox_Size.Name = "groupBox_Size";
-            this.groupBox_Size.Size = new System.Drawing.Size(303, 102);
+            this.groupBox_Size.Size = new System.Drawing.Size(303, 143);
             this.groupBox_Size.TabIndex = 6;
             this.groupBox_Size.TabStop = false;
             this.groupBox_Size.Text = "Folder Size";
@@ -99,7 +101,7 @@
             // label_SizeInMB
             // 
             this.label_SizeInMB.AutoSize = true;
-            this.label_SizeInMB.Location = new System.Drawing.Point(30, 32);
+            this.label_SizeInMB.Location = new System.Drawing.Point(29, 71);
             this.label_SizeInMB.Name = "label_SizeInMB";
             this.label_SizeInMB.Size = new System.Drawing.Size(120, 20);
             this.label_SizeInMB.TabIndex = 7;
@@ -108,11 +110,20 @@
             // label_SizeInBytes
             // 
             this.label_SizeInBytes.AutoSize = true;
-            this.label_SizeInBytes.Location = new System.Drawing.Point(30, 63);
+            this.label_SizeInBytes.Location = new System.Drawing.Point(29, 41);
             this.label_SizeInBytes.Name = "label_SizeInBytes";
             this.label_SizeInBytes.Size = new System.Drawing.Size(136, 20);
             this.label_SizeInBytes.TabIndex = 8;
             this.label_SizeInBytes.Text = "label_SizeInBytes";
+            // 
+            // label_SizeInGB
+            // 
+            this.label_SizeInGB.AutoSize = true;
+            this.label_SizeInGB.Location = new System.Drawing.Point(29, 101);
+            this.label_SizeInGB.Name = "label_SizeInGB";
+            this.label_SizeInGB.Size = new System.Drawing.Size(120, 20);
+            this.label_SizeInGB.TabIndex = 9;
+            this.label_SizeInGB.Text = "label_SizeInGB";
             // 
             // MainForm
             // 
@@ -145,6 +156,7 @@
         private System.Windows.Forms.GroupBox groupBox_Size;
         private System.Windows.Forms.Label label_SizeInBytes;
         private System.Windows.Forms.Label label_SizeInMB;
+        private System.Windows.Forms.Label label_SizeInGB;
     }
 }
 

@@ -39,7 +39,9 @@ namespace DropboxExplorer
         private void SetSizeLabels(ulong sizeInBytes)
         {
             var folderSizeInMB = sizeInBytes / 1024.0 / 1024.0;
+            var folderSizeInGB = folderSizeInMB / 1024.0;
 
+            label_SizeInGB.Text = $"{folderSizeInGB:F2} GB";
             label_SizeInMB.Text = $"{folderSizeInMB:F2} MB";
             label_SizeInBytes.Text = $"{sizeInBytes:n0} bytes";
         }
