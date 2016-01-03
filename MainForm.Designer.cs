@@ -30,10 +30,13 @@
         {
             this.treeView_DirectoryTree = new System.Windows.Forms.TreeView();
             this.button_GetFolderSize = new System.Windows.Forms.Button();
-            this.label_Results = new System.Windows.Forms.Label();
             this.textBox_AuthToken = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_ListDirectoryStructure = new System.Windows.Forms.Button();
+            this.groupBox_Size = new System.Windows.Forms.GroupBox();
+            this.label_SizeInMB = new System.Windows.Forms.Label();
+            this.label_SizeInBytes = new System.Windows.Forms.Label();
+            this.groupBox_Size.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeView_DirectoryTree
@@ -54,15 +57,6 @@
             this.button_GetFolderSize.Text = "Get Folder Size";
             this.button_GetFolderSize.UseVisualStyleBackColor = true;
             this.button_GetFolderSize.Click += new System.EventHandler(this.button_GetFolderSize_Click);
-            // 
-            // label_Results
-            // 
-            this.label_Results.AutoSize = true;
-            this.label_Results.Location = new System.Drawing.Point(672, 225);
-            this.label_Results.Name = "label_Results";
-            this.label_Results.Size = new System.Drawing.Size(197, 20);
-            this.label_Results.TabIndex = 2;
-            this.label_Results.Text = "RESULT PLACEHOLDER";
             // 
             // textBox_AuthToken
             // 
@@ -91,20 +85,51 @@
             this.button_ListDirectoryStructure.UseVisualStyleBackColor = true;
             this.button_ListDirectoryStructure.Click += new System.EventHandler(this.button_ListDirectoryStructure_Click);
             // 
+            // groupBox_Size
+            // 
+            this.groupBox_Size.Controls.Add(this.label_SizeInBytes);
+            this.groupBox_Size.Controls.Add(this.label_SizeInMB);
+            this.groupBox_Size.Location = new System.Drawing.Point(643, 224);
+            this.groupBox_Size.Name = "groupBox_Size";
+            this.groupBox_Size.Size = new System.Drawing.Size(303, 102);
+            this.groupBox_Size.TabIndex = 6;
+            this.groupBox_Size.TabStop = false;
+            this.groupBox_Size.Text = "Folder Size";
+            // 
+            // label_SizeInMB
+            // 
+            this.label_SizeInMB.AutoSize = true;
+            this.label_SizeInMB.Location = new System.Drawing.Point(30, 32);
+            this.label_SizeInMB.Name = "label_SizeInMB";
+            this.label_SizeInMB.Size = new System.Drawing.Size(120, 20);
+            this.label_SizeInMB.TabIndex = 7;
+            this.label_SizeInMB.Text = "label_SizeInMB";
+            // 
+            // label_SizeInBytes
+            // 
+            this.label_SizeInBytes.AutoSize = true;
+            this.label_SizeInBytes.Location = new System.Drawing.Point(30, 63);
+            this.label_SizeInBytes.Name = "label_SizeInBytes";
+            this.label_SizeInBytes.Size = new System.Drawing.Size(136, 20);
+            this.label_SizeInBytes.TabIndex = 8;
+            this.label_SizeInBytes.Text = "label_SizeInBytes";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1314, 877);
+            this.Controls.Add(this.groupBox_Size);
             this.Controls.Add(this.button_ListDirectoryStructure);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_AuthToken);
-            this.Controls.Add(this.label_Results);
             this.Controls.Add(this.button_GetFolderSize);
             this.Controls.Add(this.treeView_DirectoryTree);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dropbox Explorer";
+            this.groupBox_Size.ResumeLayout(false);
+            this.groupBox_Size.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,10 +139,12 @@
 
         private System.Windows.Forms.TreeView treeView_DirectoryTree;
         private System.Windows.Forms.Button button_GetFolderSize;
-        private System.Windows.Forms.Label label_Results;
         private System.Windows.Forms.TextBox textBox_AuthToken;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_ListDirectoryStructure;
+        private System.Windows.Forms.GroupBox groupBox_Size;
+        private System.Windows.Forms.Label label_SizeInBytes;
+        private System.Windows.Forms.Label label_SizeInMB;
     }
 }
 

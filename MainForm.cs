@@ -14,6 +14,8 @@ namespace DropboxExplorer
             InitializeComponent();
 
             UpdateControlStates(false);
+
+            SetSizeLabels(0);
         }
 
         private async void button_GetFolderSize_Click(object sender, EventArgs e)
@@ -22,9 +24,15 @@ namespace DropboxExplorer
 
             var folderSize = await _storageRepository.GetFolderSizeAsync(path, true);
 
-            var folderSizeInMB = folderSize / 1024.0 / 1024.0;
+            SetSizeLabels(folderSize);
+        }
 
-            label_Results.Text = $"Folder size = {folderSizeInMB:F2} MB";
+        private void SetSizeLabels(ulong sizeInBytes)
+        {
+            var folderSizeInMB = sizeInBytes / 1024.0 / 1024.0;
+
+            label_SizeInMB.Text = $"{folderSizeInMB:F2} MB";
+            label_SizeInBytes.Text = $"{sizeInBytes:n0} bytes";
         }
 
         private void textBox_AuthToken_TextChanged(object sender, EventArgs e)
