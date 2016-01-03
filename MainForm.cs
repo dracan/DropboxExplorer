@@ -20,11 +20,20 @@ namespace DropboxExplorer
 
         private async void button_GetFolderSize_Click(object sender, EventArgs e)
         {
-            var path = CalculatePath(treeView_DirectoryTree.SelectedNode);
+            try
+            {
+                UpdateControlStates(false);
 
-            var folderSize = await _storageRepository.GetFolderSizeAsync(path, true);
+                var path = CalculatePath(treeView_DirectoryTree.SelectedNode);
 
-            SetSizeLabels(folderSize);
+                var folderSize = await _storageRepository.GetFolderSizeAsync(path, true);
+
+                SetSizeLabels(folderSize);
+            }
+            finally
+            {
+                UpdateControlStates(true);
+            }
         }
 
         private void SetSizeLabels(ulong sizeInBytes)
@@ -46,13 +55,22 @@ namespace DropboxExplorer
 
         private async void button_ListDirectoryStructure_Click(object sender, EventArgs e)
         {
-            var items = await _storageRepository.GetItemsAsync("", false);
+            try
+            {
+                UpdateControlStates(false);
 
-            treeView_DirectoryTree.Nodes.Clear();
+                var items = await _storageRepository.GetItemsAsync("", false);
 
-            treeView_DirectoryTree.Nodes.AddRange((from x in items
-                                                   where x.StorageItemType == StorageItemType.Directory
-                                                   select new TreeNode(x.Name)).ToArray());
+                treeView_DirectoryTree.Nodes.Clear();
+
+                treeView_DirectoryTree.Nodes.AddRange((from x in items
+                                                       where x.StorageItemType == StorageItemType.Directory
+                                                       select new TreeNode(x.Name)).ToArray());
+            }
+            finally
+            {
+                UpdateControlStates(true);
+            }
         }
 
         private void UpdateControlStates(bool enable)
@@ -64,17 +82,26 @@ namespace DropboxExplorer
 
         private async void treeView_DirectoryTree_DoubleClick(object sender, EventArgs e)
         {
-            var selectedNode = treeView_DirectoryTree.SelectedNode;
-
-            if (selectedNode != null)
+            try
             {
-                var items = await _storageRepository.GetItemsAsync(CalculatePath(selectedNode), false);
+                UpdateControlStates(false);
 
-                selectedNode.Nodes.AddRange((from x in items
-                                             where x.StorageItemType == StorageItemType.Directory
-                                             select new TreeNode(x.Name)).ToArray());
+                var selectedNode = treeView_DirectoryTree.SelectedNode;
 
-                selectedNode.Expand();
+                if(selectedNode != null)
+                {
+                    var items = await _storageRepository.GetItemsAsync(CalculatePath(selectedNode), false);
+
+                    selectedNode.Nodes.AddRange((from x in items
+                                                 where x.StorageItemType == StorageItemType.Directory
+                                                 select new TreeNode(x.Name)).ToArray());
+
+                    selectedNode.Expand();
+                }
+            }
+            finally
+            {
+                UpdateControlStates(true);
             }
         }
 
